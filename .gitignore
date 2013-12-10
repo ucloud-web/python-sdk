@@ -7,3 +7,4 @@ core.*
 *.pyc
 *.bak
 *.out
+config.py
