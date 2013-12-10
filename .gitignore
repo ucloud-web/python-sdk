@@ -1,0 +1,9 @@
+*.log
+*.DS_Store
+*~
+*.swp 
+core.*
+.build
+*.pyc
+*.bak
+*.out
