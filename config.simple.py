@@ -7,4 +7,4 @@ private_key = ""
 #无外网IP主机使用(ucloud 云主机中)
 #base_url    = "http://api.int.ucloud.cn"
 #有外网IP主机使用
-base_url    = "http://api.wentianle.web.ucloud.cn"
+base_url    = "http://api.ucloud.cn"
