@@ -8,7 +8,7 @@
 
 #使用方法
 
-打开python 脚本 config.py 修改以下配置
+打开 cp config.simple.py config.py 修改以下配置
 
 
 #配置公私钥 公私钥请到用户中心获取
