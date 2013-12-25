@@ -10,7 +10,7 @@ ApiClient = UcloudApiClient(base_url, public_key, private_key)
 def sendsms(phone, message):
     #调用短信API 
     phone = phone.split("|")
-    response = ApiClient.post('/monitor/sendsms', json.dumps(phone), message)
+    response = ApiClient.post('/monitor/sendsms', phone=json.dumps(phone), content=message)
     if response['ret_code'] == 0:
         return True
     return False 
