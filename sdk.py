@@ -58,7 +58,7 @@ class UConnection(object):
         response = json.loads(self.conn.getresponse().read());
         return response;
 
-    def delete(self, resouse, params):
+    def put(self, resouse, params):
         params = urllib.urlencode(params);
         headers = {"Content-type": "application/x-www-form-urlencoded","Accept": "text/plain"}
         self.conn.request("PUT", resouse, params, headers);     
@@ -70,29 +70,29 @@ class UcloudApiClient(object):
     def __init__(self, base_url, public_key, private_key, region_id = 1, zone_id = 1):
         self.g_params = {};
         self.g_params['public_key'] = public_key;
-        self.g_params['private_key'] = private_key;
         self.g_params['region_id'] = region_id;
         self.g_params['zone_id'] = zone_id;
+        self.private_key = private_key;
         self.conn = UConnection(base_url);
     
     def get(self, url, **params):
         _params =  dict(self.g_params, **params);
-        _params["access_token"] = _verfy_ac(_params['private_key'], _params);
+        _params["access_token"] = _verfy_ac(self.private_key, _params);
         return self.conn.get(url,_params);
 
     def post(self, url, **params):
         _params =  dict(self.g_params, **params);
-        _params["access_token"] = _verfy_ac(_params['private_key'], _params);
+        _params["access_token"] = _verfy_ac(self.private_key, _params);
         return self.conn.post(url,_params);
 
     def delete(self, url, **params):
         _params =  dict(self.g_params, **params);
-        _params["access_token"] = _verfy_ac(_params['private_key'], _params);
+        _params["access_token"] = _verfy_ac(self.private_key, _params);
         return self.conn.delete(url,_params);
 
     def put(self, url, **params):
         _params =  dict(self.g_params, **params);
-        _params["access_token"] = _verfy_ac(_params['private_key'], _params);
+        _params["access_token"] = _verfy_ac(self.private_key, _params);
         return self.conn.delete(url,_params);
 
 if __name__=='__main__':
