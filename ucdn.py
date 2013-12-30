@@ -10,7 +10,7 @@ ApiClient = UcloudApiClient(base_url, public_key, private_key, 1)
 
 def refresh_cdn():
     #调用cdn内容刷新API 
-    response = ApiClient.post('/api/ucdn/refresh',
+    response = ApiClient.post('/ucdn/refresh',
            url_list = 'http://ucloud.cn/images/test.jpg;http://ucloud.cn/images/test.jpg',
            cdn_domain='ucloud.cn',
            type = 1
@@ -33,7 +33,7 @@ refresh_cdn();
 #POST字段说明：
 #   cdn_domain //要刷新的域名
 #   url_list   //该域名下的文件列表或目录列表
-#   type       // url_list 中的类型 1：目录列表，2：文件列表
+#   type       // url_list 的类型 1：目录列表，2：文件列表
 #返回值字段说明：
 #ret_code      //执行结果状态码 0：执行成功 
 #data          //执行结果返回值 true ：成功   false：失败
