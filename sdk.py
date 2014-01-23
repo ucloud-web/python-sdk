@@ -93,7 +93,7 @@ class UcloudApiClient(object):
     def put(self, url, **params):
         _params =  dict(self.g_params, **params);
         _params["access_token"] = _verfy_ac(self.private_key, _params);
-        return self.conn.delete(url,_params);
+        return self.conn.put(url,_params);
 
 if __name__=='__main__':
     arg_length = len(sys.argv)
