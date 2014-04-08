@@ -8,7 +8,7 @@ import json
 ApiClient = UcloudApiClient(base_url, public_key, private_key)
 
 def get_log_analysis():
-    #调用cdn内容刷新API 
+    #调用日志分析API 
     response = ApiClient.get('/ucdn/loganalysis',
         cdn_domain='ucloud.cn',
         begin_time='2014-04-04',
@@ -21,7 +21,7 @@ def get_log_analysis():
 get_log_analysis();
 
 #API 说明:
-#   1,请输入您要分析的域名，开始查询时间，和结束时间,日志类型，显示结果数量。
+#   1,请输入您要查询日志分析的域名，开始时间，结束时间,日志类型，和显示结果数量。
 #   2,开始时间和结束时间是字符串型，如"2014-04-04",字串长度为10，错误的格式会导致查询不成功。
 #POST字段说明：
 #   cdn_domain  //查询日志分析的域名
