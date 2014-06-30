@@ -87,8 +87,30 @@ def f_diskinfo():
     return arr
 
 
-def get_ip_address():
-    return socket.gethostbyname(socket.gethostname())
+'''
+@summary: Get the host ip
+'''
+def get_ip_address(ifname='eth0'):
+    s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+    return socket.inet_ntoa(fcntl.ioctl(s.fileno(), 0x8915,
+            struct.pack('256s',ifname[:15]))[20:24])
+
+
+'''
+@summary: Detect if there are readonly disks
+@return: list of readonly disks; None = something error
+'''
+def f_detect_disk_readonly():
+
+    arr = []
+    f_logfile = open("/proc/mounts", "r")
+    ts = int(time.time())
+    for line in f_logfile:
+        m = re.match("^\/dev\/sd(\w+) [\w\W]* ro,[\w\W]*", line)
+        if m:
+            device = line.split(" ")[0]
+            arr.append(device)
+    return arr
 
 def main():
     print f_cpu()
