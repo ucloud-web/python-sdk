@@ -5,7 +5,7 @@ import sys
 
 #实例化 API 句柄 指定获取数据的数据中心 {北京BGP :1001, 华东双线: 1 
 
-ApiClient = UcloudApiClient(base_url, public_key, private_key, 1)
+ApiClient = UcloudApiClient(base_url, public_key, private_key, 1001)
 
 #获取ULB 列表
 #
@@ -41,14 +41,12 @@ if __name__=='__main__':
 
     print vserver_list
     #监控指标   104000 新建连接数/s 104001 入带宽(kbps) 104002 出带宽(kbps)  
-    item_ids = [104000, 104001, 104002]
+    item_ids = [7003]
 
     for vserver in vserver_list:
-        for _v in vserver['vserver_infos']:
+        for public_ip in vserver['public_ips']:
             for item_id in item_ids:
-                print get_monitor_data(_v["vserver_id"], item_id, 1386604800, 1386663938);
-
-
+                print get_monitor_data(public_ip["ip"], item_id, 1386604800, 1405668555);
 
 
     # if arg_length < 5 :

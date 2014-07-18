@@ -21,5 +21,5 @@ if __name__=='__main__':
         print "./sendsms.py 1377777777777|137888888888 测试短信"
         sys.exit()
 
-    sendsms(sys.argv[1], sys.argv[2]);
+    print sendsms(sys.argv[1], sys.argv[2]);
 
