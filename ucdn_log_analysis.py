@@ -39,4 +39,5 @@ get_log_analysis();
 #file_download_count 代表文件下载次数
 #file_traffic 代表文件下载量单位MB
 #file_url 代表访问的文件路径
+
 #[{"file_download_count":"68","file_traffic":"0.32","file_url":"http:\/\/ucloud.cn\/LOGO.png"},{"file_download_count":"57","file_traffic":"0.51","file_url":"http:\/\/ucloud.cn\/acea4778cdec704477c905deacc61ca2.png"},{"file_download_count":"23","file_traffic":"6.81","file_url":"http:\/\/ucloud.cn\/c4026298060cf87c6ffa40ac785cfa5f.rar"},{"file_download_count":"8","file_traffic":"0.38","file_url":"http:\/\/ucloud.cn\/af09e055f522311dde8b6b2145a89a5d.png"},{"file_download_count":"7","file_traffic":"5.68","file_url":"http:\/\/ucloud.cn\/78708b3b6245b871c7618f4217277989.jpg"}]
